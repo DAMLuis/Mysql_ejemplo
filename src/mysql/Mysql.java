@@ -7,6 +7,7 @@ package mysql;
 
 import com.mysql.jdbc.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
@@ -93,7 +94,7 @@ public class Mysql {
         try {
             String Query = "SELECT * FROM " + table_name;
             Statement st = Conexion.createStatement();
-            java.sql.ResultSet resultSet;
+            ResultSet resultSet;
             resultSet = st.executeQuery(Query);
  
             while (resultSet.next()) {
