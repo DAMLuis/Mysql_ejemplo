@@ -20,7 +20,6 @@ import javax.swing.JOptionPane;
  */
 public class Mysql {
 
-    
     private static Connection Conexion;
 
     public void MySQLConnection(String user, String pass, String db_name) throws Exception {
