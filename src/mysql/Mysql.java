@@ -22,7 +22,7 @@ import javax.swing.table.DefaultTableModel;
 public class Mysql {
 
     private static Connection Conexion;
-    private  Statement st;
+    private Statement st;
 
     public void mConnection() {
         try {
@@ -66,7 +66,7 @@ public class Mysql {
                     + "(ID VARCHAR(25),Nombre VARCHAR(50), Apellido VARCHAR(50),"
                     + " Edad VARCHAR(3), Sexo VARCHAR(1))";
 
-            Statement st = Conexion.createStatement();
+            st = Conexion.createStatement();
             st.executeUpdate(Query);
             JOptionPane.showMessageDialog(null, "Se ha creado la tabla " + name + " de forma exitosa");
         } catch (SQLException ex) {
@@ -81,14 +81,15 @@ public class Mysql {
                     + "\"" + apellido + "\", "
                     + "\"" + edad + "\", "
                     + "\"" + sexo + "\")";
-            Statement st = Conexion.createStatement();
-            st.executeUpdate(Query);
+            Statement stt = Conexion.createStatement();
+            stt.executeUpdate(Query);
             JOptionPane.showMessageDialog(null, "Datos almacenados de forma exitosa");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error en el almacenamiento de datos");
         }
     }
 
+    //ver todos los datos de la tabla
     public ResultSet getValues(String table_name) {
           ResultSet resultSet=null;
         try {
@@ -96,12 +97,12 @@ public class Mysql {
             st = Conexion.createStatement();
             resultSet = st.executeQuery(Query);
 
-            while (resultSet.next()) {
-                System.out.println("ID: " + resultSet.getString("ID") + " "
-                        + "Nombre: " + resultSet.getString("Nombre") + " " + resultSet.getString("Apellido") + " "
-                        + "Edad: " + resultSet.getString("Edad") + " "
-                        + "Sexo: " + resultSet.getString("Sexo"));
-            }
+//            while (resultSet.next()) {
+//                System.out.println("ID: " + resultSet.getString("ID") + " "
+//                        + "Nombre: " + resultSet.getString("Nombre") + " " + resultSet.getString("Apellido") + " "
+//                        + "Edad: " + resultSet.getString("Edad") + " "
+//                        + "Sexo: " + resultSet.getString("Sexo"));
+//            }
             
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error en la adquisición de datos");
@@ -113,7 +114,7 @@ public class Mysql {
     public void deleteRecord(String table_name, String ID) {
         try {
             String Query = "DELETE FROM " + table_name + " WHERE ID = \"" + ID + "\"";
-            Statement st = Conexion.createStatement();
+            st = Conexion.createStatement();
             st.executeUpdate(Query);
 
         } catch (SQLException ex) {
@@ -124,9 +125,9 @@ public class Mysql {
     
     
     
-
+//metodo para ver todo en la tabla
     public void verTodo(DefaultTableModel tableModel){
-
+        mConnection();
         ResultSet resultado = null;
         tableModel.setRowCount(0);
         tableModel.setColumnCount(0);
