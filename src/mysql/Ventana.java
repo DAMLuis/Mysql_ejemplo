@@ -98,7 +98,7 @@ public class Ventana extends javax.swing.JFrame {
         try {
             // TODO add your handling code here:
         
-            db.MySQLConnection("root", "root", "MySQL_Test");
+            db.mConnection();
             btn_conectar.setEnabled(false);
             btn_registrar.setEnabled(true);
             btn_get.setEnabled(true);
@@ -118,16 +118,10 @@ public class Ventana extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_registrarActionPerformed
 
     private void btn_getActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_getActionPerformed
-        try {
-            // TODO add your handling code here:
-            db.MySQLConnection("root", "root", "MySQL_Test");
-            db.getValues("Registros");
-            db.closeConnection();
-        } catch (Exception ex) {
-            Logger.getLogger(Ventana.class.getName()).log(Level.SEVERE, null, ex);
-        }
+
         
-        
+        VerDatos verDatos = new VerDatos();
+        verDatos.setVisible(true);
         
         
     }//GEN-LAST:event_btn_getActionPerformed

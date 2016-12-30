@@ -126,7 +126,7 @@ public class Ventana_registro extends javax.swing.JFrame {
                     edt_apellidos.getText(),
                     edt_edad.getText(),
                     combo_sexo.getSelectedItem().toString());
-            //db.closeConnection();
+            db.closeConnection();
             this.dispose();
         } catch (Exception ex) {
             Logger.getLogger(Ventana_registro.class.getName()).log(Level.SEVERE, null, ex);
