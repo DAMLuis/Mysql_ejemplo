@@ -21,7 +21,7 @@ public class VerDatos extends javax.swing.JFrame {
      * Creates new form VerDatos
      */
     Mysql db = new Mysql();
-
+  
     public VerDatos() {
         initComponents();
     }
@@ -102,9 +102,9 @@ public class VerDatos extends javax.swing.JFrame {
     private void btn_verDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_verDatosActionPerformed
 
   
-            db.verTodo((DefaultTableModel)jTable1.getModel());
+        db.verTodo((DefaultTableModel)jTable1.getModel());
   
-
+         
 
     }//GEN-LAST:event_btn_verDatosActionPerformed
 
